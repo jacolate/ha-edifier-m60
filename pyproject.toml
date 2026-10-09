@@ -22,7 +22,6 @@ skip_covered = true
 [tool.ruff]
 target-version = "py313"
 line-length = 88
-extend-exclude = ["m60.py", "*.md"]
 
 [tool.ruff.lint]
 select = [
