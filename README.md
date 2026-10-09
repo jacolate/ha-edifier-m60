@@ -1,5 +1,9 @@
 # Edifier M60 for Home Assistant
 
+[![CI](https://github.com/jacolate/ha-edifier-m60/actions/workflows/ci.yml/badge.svg)](https://github.com/jacolate/ha-edifier-m60/actions/workflows/ci.yml)
+[![Validate](https://github.com/jacolate/ha-edifier-m60/actions/workflows/validate.yml/badge.svg)](https://github.com/jacolate/ha-edifier-m60/actions/workflows/validate.yml)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz)
+
 Custom integration that controls Edifier M60 speakers over BLE, mainly to switch the
 input source (Bluetooth / USB-C / AUX). It uses Home Assistant's Bluetooth stack, so it
 works with a local adapter or an ESPHome Bluetooth proxy (with active connections enabled).
@@ -16,7 +20,7 @@ Protocol notes are in [`proto.md`](proto.md). `m60.py` is a standalone bleak scr
 
 ## Install
 
-1. Copy `custom_components/edifier_m60/` to `/config/custom_components/` (or add this repo to HACS as a custom repository).
+1. Copy `custom_components/edifier_m60/` to `/config/custom_components/` (or in HACS: *⋮ → Custom repositories*, add `https://github.com/jacolate/ha-edifier-m60` as type *Integration*).
 2. Restart Home Assistant. The speaker should show up as discovered. Otherwise go to
    *Settings → Devices & services → Add integration → Edifier M60*.
 

@@ -5,13 +5,13 @@
     {"manufacturer_id": 2016, "connectable": true},
     {"service_uuid": "0000f600-0000-1000-8000-00805f9b34fb", "connectable": true}
   ],
-  "codeowners": [],
+  "codeowners": ["@jacolate"],
   "config_flow": true,
   "dependencies": ["bluetooth_adapters"],
-  "documentation": "https://github.com/",
+  "documentation": "https://github.com/jacolate/ha-edifier-m60",
   "integration_type": "device",
   "iot_class": "local_push",
-  "issue_tracker": "https://github.com/",
+  "issue_tracker": "https://github.com/jacolate/ha-edifier-m60/issues",
   "requirements": ["bleak-retry-connector>=3.5.0"],
   "version": "0.1.0"
 }
