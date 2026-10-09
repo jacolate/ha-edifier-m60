@@ -1,0 +1,54 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "description": "Pick a discovered Edifier speaker or enter its BLE address.",
+        "data": {"address": "Device"}
+      },
+      "manual": {
+        "description": "Enter the BLE address of the speaker (not the classic Bluetooth audio MAC).",
+        "data": {"address": "BLE address"}
+      },
+      "bluetooth_confirm": {
+        "description": "Set up {name}?"
+      }
+    },
+    "abort": {
+      "already_configured": "This speaker is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "connection_mode": "Connection mode",
+          "poll_interval": "Poll interval (on-demand mode)",
+          "idle_disconnect": "Disconnect after idle (on-demand mode)"
+        },
+        "data_description": {
+          "connection_mode": "Persistent gets live updates but blocks the EDIFIER ConneX app. On demand connects only for commands and polls, so the app can still connect."
+        }
+      }
+    }
+  },
+  "selector": {
+    "connection_mode": {
+      "options": {
+        "persistent": "Persistent",
+        "on_demand": "On demand"
+      }
+    }
+  },
+  "entity": {
+    "select": {
+      "input_source": {"name": "Input source"}
+    },
+    "binary_sensor": {
+      "connected": {"name": "Connected"}
+    },
+    "number": {
+      "volume": {"name": "Volume"}
+    }
+  }
+}

@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      # HA test harness and bluetooth libs must move together
+      home-assistant:
+        patterns:
+          - "pytest-homeassistant-custom-component"
+          - "bleak*"
+          - "bluetooth-*"
+          - "habluetooth"
+          - "dbus-fast"
+          - "aiousbwatcher"
+          - "pyserial"

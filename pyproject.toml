@@ -1,0 +1,88 @@
+[project]
+name = "edifier-m60"
+version = "0.1.0"
+description = "Home Assistant integration for Edifier M60 speakers over BLE"
+requires-python = ">=3.13"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+source = ["custom_components.edifier_m60"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
+skip_covered = true
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+extend-exclude = ["m60.py", "*.md"]
+
+[tool.ruff.lint]
+select = [
+    "A",     # builtins shadowing
+    "ASYNC", # async pitfalls
+    "B",     # bugbear
+    "BLE",   # blind except
+    "C4",    # comprehensions
+    "D",     # docstrings
+    "DTZ",   # naive datetimes
+    "E",     # pycodestyle
+    "F",     # pyflakes
+    "FLY",   # f-strings
+    "G",     # logging format
+    "I",     # isort
+    "LOG",   # logging
+    "N",     # naming
+    "PERF",  # performance
+    "PIE",
+    "PL",    # pylint
+    "PT",    # pytest style
+    "RET",   # returns
+    "RSE",
+    "RUF",
+    "SIM",   # simplify
+    "SLF",   # private access
+    "T20",   # print
+    "TRY",   # exceptions
+    "UP",    # pyupgrade
+    "W",
+]
+ignore = [
+    "D202",    # blank line after docstring (conflicts with nested callbacks)
+    "D203",    # incompatible with D211
+    "D213",    # incompatible with D212
+    "E501",    # line length is handled by the formatter
+    "PLR0913", # HA-style constructors take many args
+    "PLR0917", # same, positional
+    "PLR2004", # magic values are fine in protocol code
+    "TRY003",  # long messages in exceptions are fine
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ASYNC110", "PLC0415", "SLF001"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+known-first-party = ["custom_components.edifier_m60"]
+known-third-party = ["homeassistant"]
+combine-as-imports = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_unreachable = true
+disallow_any_generics = false
+files = ["custom_components/edifier_m60"]
+
+[[tool.mypy.overrides]]
+module = ["homeassistant.*"]
+follow_untyped_imports = true
